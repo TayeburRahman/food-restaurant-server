@@ -1,6 +1,6 @@
 # food-restaurants-server
 
-## (MERN Stack Project )
+## (MERN Stack Project)
 
 In the project directory connected to the fronted-end-site (Dingo Restauant). This project based on A Restaurant Website with booking table through online & ordering foods. [Demo Project](https://dingo-restaurant-rg.web.app/).
 
