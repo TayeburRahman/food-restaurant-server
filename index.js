@@ -93,8 +93,7 @@ client.connect(err => {
     })
     // DASHBOARD PAGE -: DELETE SINGLE MENU
     app.delete('/deleteSingleMenu/:id', (req, res) => {
-        const id = req.params.id
-        // console.log(id);
+        const id = req.params.id 
         allMenuCollections.deleteOne({ _id: ObjectId(id) })
             .then((result) => {
                 res.json("Deleted One Menu Item")
@@ -142,7 +141,7 @@ client.connect(err => {
     // DASHBOARD PAGE -: VIEW SINGLE CONTACT US MESSAGE
     app.get('/singleContactUsMessage/:id', (req, res) => {
         const id = req.params.id
-        contactUsMessageCollections.find({ _id: ObjectId(id) })
+        contactUsMessageCollections.find({ _id: id })
             .toArray((err, documents) => {
                 res.send(documents[0])
             })
@@ -157,9 +156,9 @@ client.connect(err => {
     // DASHBOARD PAGE -: VIEW SINGLE CAREER MESSAGE
     app.get('/singleCareerMessage/:id', (req, res) => {
         const id = req.params.id
-        careerMessageCollections.find({ _id: ObjectId(id) })
+        careerMessageCollections.find({_id: id})
             .toArray((err, documents) => {
-                res.send(documents[0])
+                res.send(documents)
             })
     })
     // DASHBOARD PAGE -: GET ALL NEWS LETTER
@@ -178,9 +177,11 @@ client.connect(err => {
     })
     // DASHBOARD PAGE -: GET SINGLE VIEW ORDER
     app.get('/singleFoodOrderView/:id', (req, res) => {
-        const id = req.params.id
-        foodOrdersCollections.find({ _id: ObjectId(id) })
+        const id = req.params.id 
+        console.log('idrr', id)
+        foodOrdersCollections.find({ _id: id})
             .toArray((err, documents) => {
+                console.log('idrr', documents)
                 res.send(documents)
             })
     })
@@ -201,8 +202,7 @@ client.connect(err => {
     })
     // DASHBOARD PAGE -: UPDATE SINGLE MENU 
     app.get('/updateMenu/:id', (req, res) => {
-        const id = req.params.id
-        console.log("res", id);
+        const id = req.params.id 
         allMenuCollections.find({ _id: ObjectId(id) })
             .toArray((err, documents) => {
                 res.send(documents[0])
@@ -302,8 +302,7 @@ client.connect(err => {
 
     // SINGLE-MENU PAGE -: GET SINGLE MENU ITEM
     app.get('/singleMenu/:id', (req, res) => {
-        const id = req.params.id
-        // console.log("res",id);
+        const id = req.params.id 
         allMenuCollections.find({ _id: ObjectId(id) })
             .toArray((err, documents) => {
                 res.send(documents[0])
@@ -329,7 +328,7 @@ client.connect(err => {
     app.get('/singleBlog/:id', (req, res) => {
         const id = req.params.id
         // console.log(id);
-        allBlogsCollections.find({ _id: ObjectId(id) })
+        allBlogsCollections.find({ _id: id })
             .toArray((err, documents) => {
                 res.send(documents[0])
             })
@@ -346,7 +345,7 @@ client.connect(err => {
                 console.log("Error Message :", err);
             })
     })
-    
+
     // ABOUT PAGE -: GET ALL ABOUT RESTAURANT REVIEWS
     app.get('/restaurantReview', (req, res) => {
         restaurantReviewCollections.find({})
@@ -367,7 +366,6 @@ client.connect(err => {
             })
     })
 
-
     // CAREER PAGE -: ADD NEW CAREER MESSAGE
     app.post('/addCareerMessage', (req, res) => {
         const data = req.body;
@@ -379,7 +377,6 @@ client.connect(err => {
                 console.log(err);
             })
     })
-
 
     // RESERVATION PAGE -: ADD NEW RESERVATION
     app.post('/addReservation', (req, res) => {
