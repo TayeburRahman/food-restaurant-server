@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 //* FIREBASE INITIALZE APP
 const admin = require("firebase-admin");
-var serviceAccount = require("./food-factory-1dc80-firebase-adminsdk-ci2lk-1f9ea3f0d5.json"); 
+var serviceAccount = require("./bingo-restaurant-fbde0-firebase-adminsdk-4mdz3-168b8ca06b.json"); 
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
